@@ -5,18 +5,9 @@
     <body>
       <p>Rock Paper Scissors Game</p>
       <button onclick="
-         const randomNumber=Math.random();
-         let computerMove='';
-         if (randomNumber < 0.33) {
-           computerMove='Rock';
-         } else if (randomNumber < 0.66) {
-           computerMove='Paper';
-         } else {
-           computerMove='Scissors';
-         }
+         const computerMove = pickComputerMove();
 
-         let = result='';
-
+         let result='';
          if (computerMove === 'Rock'){
           result='Tie';
          } else if (computerMove === 'Paper') {
@@ -30,18 +21,8 @@
 
 
       <button onclick="
-        randomNumber=Math.random();
-        computerMove='';
-
-        if (randomNumber < 0.33) {
-           computerMove='Rock';
-         } else if (randomNumber < 0.66) {
-           computerMove='Paper';
-         } else {
-           computerMove='Scissors';
-         }
-
-         let = result='';
+        computerMove=pickComputerMove();
+         result='';
 
          if (computerMove === 'Rock'){
           result='You win';
@@ -56,18 +37,11 @@
 
 
       <button onclick="
-        randomNumber=Math.random();
-        computerMove='';
+        
+        computerMove=pickComputerMove();
 
-        if (randomNumber < 0.33) {
-           computerMove='Rock';
-         } else if (randomNumber < 0.66) {
-           computerMove='Paper';
-         } else {
-           computerMove='Scissors';
-         }
 
-         let = result='';
+         result='';
 
          if (computerMove === 'Rock'){
           result='You lose';
@@ -80,7 +54,18 @@
          alert(`You picked Scissors. Computer picked ${computerMove}.${result}`);
       ">Scissors</button>
       <script>
-
+        function pickComputerMove() {
+          const randomNumber=Math.random();
+          let computerMove='';
+          if (randomNumber < 0.33) {
+            computerMove='Rock';
+          } else if (randomNumber < 0.66) {
+            computerMove='Paper';
+          } else {
+            computerMove='Scissors';
+          }
+          return computerMove;
+        }
       </script>
     </body>
   </head>
