@@ -45,6 +45,54 @@
 
       const jsonstring =JSON.stringify(product);
       console.log(JSON.parse(jsonstring)); // converts string to object
+
+
+      console.log("hello".length);
+      console.log("hello".toUpperCase());
+
+      // objects are references
+
+      const object1={
+        message:'hello'
+      };
+      const object2=object1;  //pointing to the same object
+
+      object1.message='good job';
+      console.log(object1.message);  // changed even though const used
+      console.log(object2.message);  
+
+      const object3={
+        message:'good job'
+      };
+      console.log(object1 === object2); // true, same reference
+      console.log(object1 === object3); // false, different references
+
+      const object4={
+        message:'good job',
+        price:798
+      };
+
+      //destructuring
+      //const message = object4.message;  extracting message property
+      const {message, price} = object4; // extracting message and price properties
+      console.log(message);
+      console.log(price);
+
+      //Shorthand property names
+      const object5 = {
+        //message:message
+        message,  //property and variable name are same
+        price,
+        //method: function function1() {
+        //  console.log('This is a method in object5');
+        //}
+        method() {
+          console.log('This is a method in object5');
+        }
+      };
+      console.log(object5);
+      object5.method(); // calling the method in object5
+
     </script>
   </body>
   
