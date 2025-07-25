@@ -2,81 +2,38 @@
 <html>
   <head>
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles/rock-paper-scissor.css">
   </head>
 
 
   <body>
-    <p>Rock Paper Scissors Game</p>
+    <p class="title">Rock Paper Scissors Game</p>
     <button onclick="
-      computerMove=pickComputerMove();
       playGame('Rock');
-      result='';">Rock</button>
+      " class="move-button"><img class="move-icon" src="images/rock-emoji.png"></button>
 
 
     <button onclick="
-      computerMove=pickComputerMove();
       playGame('Paper');
-      result='';">Paper</button>
+      " class="move-button"><img class="move-icon" src="images/paper-emoji.png"></button>
 
 
     <button onclick="
-      computerMove=pickComputerMove();
       playGame('Scissors');
-      result='';">Scissors</button>
+      " class="move-button"><img class="move-icon" src="images/scissors-emoji.png"></button>
+
+      <p class="js-result result"></p>
+      <p class="js-moves"></p>
+      <p class="js-score score"></p>
 
       <button onclick="
         score.wins=0;
         score.losses=0;
         score.ties=0;
         localStorage.removeItem('score');
-      ">Reset</button>
+        updateScoreElement();
+      " class="reset-score-button">Reset</button>
 
-    <script>
-      const score =JSON.parse(localStorage.getItem('score')) || {
-        wins:0,
-        losses:0,
-        ties:0
-      }
-
-
-
-      function pickComputerMove() {
-        const randomNumber=Math.random();
-        let computerMove='';
-        if (randomNumber < 0.33) {
-          computerMove='Rock';
-        } else if (randomNumber < 0.66) {
-          computerMove='Paper';
-        } else {
-          computerMove='Scissors';
-        }
-        return computerMove;
-      }
-
-      function playGame(userMove){
-        const computerMove = pickComputerMove();
-
-        let result='';
-        if (computerMove === userMove){
-          result='Tie';
-          score.ties++;
-        } else if (computerMove === 'Paper' && userMove === 'Rock' ||
-                   computerMove === 'Scissors' && userMove === 'Paper' ||
-                   computerMove === 'Rock' && userMove === 'Scissors') {
-          result='You lose';
-          score.losses++;
-        } else if (computerMove === 'Scissors' && userMove === 'Rock' ||
-                   computerMove === 'Rock' && userMove === 'Paper' ||
-                   computerMove === 'Paper' && userMove === 'Scissors') {
-          result='You win';
-          score.wins++;
-        }
-
-        localStorage.setItem('score', JSON.stringify(score)); // save score to local storage
-
-
-        alert(`You picked ${userMove}. Computer picked ${computerMove}.${result}, WINS: ${score.wins}, LOSSES: ${score.losses}, TIES: ${score.ties}`);
-      }
-    </script>
+    <script src="scripts/rock-paper-scissor.js"></script>
   </body>
 </html>

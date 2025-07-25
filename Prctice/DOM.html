@@ -7,16 +7,33 @@
 
   <body>
     <button>hello</button>
+    <button class="js-button">Second button</button>
 
 
     <script>
-      console.log(document.title);
-      console.log(document.body);
-      console.log(typeof document.body);
+      console.log(document.querySelector('button'));
 
+      document.querySelector('button')
+        .innerHTML='changed';
+      
+      
+      const buttonElement = document.querySelector('.js-button');
+
+      console.log(buttonElement);
+        
 
       /*
-      document.body.innerHTML='hello';
+      console.log(document.title);
+      document.title = 'Hello World!';
+      console.log(document.body);
+      console.log(typeof document.body); //js object
+
+      console.log(document.body.innerHTML); //gives the HTML inside the body
+      console.log(document.body.innerText); //gives the text inside the body
+
+      document.body.innerHTML = '<button>Click me!</button>';
+
+      document.body.innerHTML='hello'; //changes the HTML inside the body
       document.title='Good job!';
       */
     </script>
